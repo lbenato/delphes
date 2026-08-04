@@ -68,9 +68,15 @@ endif
 
 ifeq ($(HAS_PYTHIA8),true)
 ifneq ($(PYTHIA8),)
-CXXFLAGS += -I$(PYTHIA8)/include
-CXXFLAGS += -I$(PYTHIA8)/include/Pythia8
-OPT_LIBS += -L$(PYTHIA8)/lib -lpythia8 -ldl -lz
+# Prepend (not append) so the local Pythia8 headers are found before any
+# Pythia8 headers that ship inside the conda environment's include dir
+# (e.g. pulled in via ROOTCFLAGS -I$CONDA_PREFIX/include).
+CXXFLAGS := -I$(PYTHIA8)/include -I$(PYTHIA8)/include/Pythia8 $(CXXFLAGS)
+OPT_LIBS += $(PYTHIA8)/lib/libpythia8.so -ldl -lz
+# Prepend our rpath too, so it's found ahead of the conda env's rpath
+# (from root-config --libs) at runtime, which also ships a libpythia8.so.
+DELPHES_LIBS := -Wl,-rpath,$(PYTHIA8)/lib $(DELPHES_LIBS)
+DISPLAY_LIBS := -Wl,-rpath,$(PYTHIA8)/lib $(DISPLAY_LIBS)
 endif
 endif
 

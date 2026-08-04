@@ -47,7 +47,6 @@
 
 #include <algorithm>
 #include <iostream>
-#include <memory>
 #include <sstream>
 #include <stdexcept>
 
@@ -130,7 +129,7 @@ void LLPFilter::Process()
 {
 
   Candidate *candidate;
-  Int_t pdgCode, d1, d2, dn;
+  Int_t pdgCode;
   Double_t pt, eta;
   Candidate *tempCandidate;
 
@@ -153,12 +152,7 @@ void LLPFilter::Process()
     if(pt < fPTMin) continue;
     if(fDaughterNumber > 0)
     {
-      d1 = candidate->D1;
-      d2 = candidate->D2;
-      if(d1 < 0) continue;
-      if(d2 < 0) d2 = d1;
-      dn = d1 <= d2 ? d2 - d1 + 1 : 2;
-      if(dn < fDaughterNumber) continue; //require at least fDaughterNumber daughters
+      if(candidate->D2 - candidate->D1 != fDaughterNumber) continue; //require at least fDaughterNumber daughters
     }
     if(find(fPdgCodes.begin(), fPdgCodes.end(), pdgCode) == fPdgCodes.end()) continue; //require pdgID is one of the LLP id
     if(fRequireStatus && (candidate->Status != fStatus)) continue;
@@ -174,7 +168,7 @@ void LLPFilter::Process()
       daughterPdg = daughter->PID;
       if(daughter->Status != 1) continue;
       if(daughter->IsPU) continue;
-      if(abs(daughterPdg) == 12 || abs(daughterPdg) == 14 || abs(daughterPdg) == 16 || abs(daughterPdg) == 13) continue; // ignore neutrinos and muons
+      if(abs(daughterPdg) == 12 || abs(daughterPdg) == 14 || abs(daughterPdg) == 16 || abs(daughterPdg) == 13 || abs(daughterPdg) == 51) continue; // ignore neutrinos and muons
       if(abs(daughterPdg) > 1000000) continue; //ignore BSM particles
 
       const TLorentzVector &daughterMomentum = daughter->Momentum;
