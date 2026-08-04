@@ -135,6 +135,7 @@ void LLPFilter::Process()
 
   Candidate *daughter;
   Int_t daughterPdg;
+  Int_t multiplicity;
 
   // loop over particles to find LLP
   fItInputArray->Reset();
@@ -160,6 +161,7 @@ void LLPFilter::Process()
     // loop over particles to find LLP daughters and assign EM and hadronic energy
     candidate->Eem = 0.0;
     candidate->Ehad = 0.0;
+    multiplicity = 0;
     fItParticleInputArray->Reset();
 
     while((daughter = static_cast<Candidate *>(fItParticleInputArray->Next())))
@@ -186,7 +188,9 @@ void LLPFilter::Process()
         candidate->Eem += daughterMomentum.E();
       else
         candidate->Ehad += daughterMomentum.E();
+      multiplicity++;
     }
+    candidate->Multiplicity = multiplicity;
 
     if(fRequireDecayRegion)
     {

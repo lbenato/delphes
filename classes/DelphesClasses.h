@@ -767,6 +767,7 @@ public:
   Float_t Eem;
   Float_t Ehad;
   Float_t Etrk;
+  Int_t Multiplicity; // number of decay-product daughters used to compute Eem and Ehad
 
   Float_t Edges[4];
   Float_t DeltaEta;
@@ -892,7 +893,7 @@ private:
 
   void SetFactory(DelphesFactory *factory) { fFactory = factory; }
 
-  ClassDef(Candidate, 7)
+  ClassDef(Candidate, 8)
 };
 
 #endif // DelphesClasses_h

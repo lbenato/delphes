@@ -441,7 +441,8 @@ tmp/modules/ModulesDict.$(SrcSuf): \
 	modules/ExampleModule.h \
 	modules/LLPFilter.h \
 	modules/CscClusterEfficiency.h \
-	modules/CscClusterId.h
+	modules/CscClusterId.h \
+	modules/DtClusterEfficiency.h
 tmp/modules/ModulesDict$(PcmSuf): \
 	tmp/modules/ModulesDict.$(SrcSuf)
 ModulesDict$(PcmSuf): \
@@ -496,6 +497,10 @@ tmp/classes/DelphesCscClusterFormula.$(ObjSuf): \
 tmp/classes/DelphesCylindricalFormula.$(ObjSuf): \
 	classes/DelphesCylindricalFormula.$(SrcSuf) \
 	classes/DelphesCylindricalFormula.h
+tmp/classes/DelphesDtClusterFormula.$(ObjSuf): \
+	classes/DelphesDtClusterFormula.$(SrcSuf) \
+	classes/DelphesDtClusterFormula.h \
+	classes/DelphesClasses.h
 tmp/classes/DelphesFactory.$(ObjSuf): \
 	classes/DelphesFactory.$(SrcSuf) \
 	classes/DelphesFactory.h \
@@ -769,6 +774,15 @@ tmp/modules/DenseTrackFilter.$(ObjSuf): \
 	classes/DelphesClasses.h \
 	classes/DelphesFactory.h \
 	classes/DelphesFormula.h \
+	external/ExRootAnalysis/ExRootClassifier.h \
+	external/ExRootAnalysis/ExRootFilter.h \
+	external/ExRootAnalysis/ExRootResult.h
+tmp/modules/DtClusterEfficiency.$(ObjSuf): \
+	modules/DtClusterEfficiency.$(SrcSuf) \
+	modules/DtClusterEfficiency.h \
+	classes/DelphesClasses.h \
+	classes/DelphesDtClusterFormula.h \
+	classes/DelphesFactory.h \
 	external/ExRootAnalysis/ExRootClassifier.h \
 	external/ExRootAnalysis/ExRootFilter.h \
 	external/ExRootAnalysis/ExRootResult.h
@@ -1185,6 +1199,7 @@ DELPHES_OBJ +=  \
 	tmp/classes/DelphesClasses.$(ObjSuf) \
 	tmp/classes/DelphesCscClusterFormula.$(ObjSuf) \
 	tmp/classes/DelphesCylindricalFormula.$(ObjSuf) \
+	tmp/classes/DelphesDtClusterFormula.$(ObjSuf) \
 	tmp/classes/DelphesFactory.$(ObjSuf) \
 	tmp/classes/DelphesFormula.$(ObjSuf) \
 	tmp/classes/DelphesHepMC2Reader.$(ObjSuf) \
@@ -1255,6 +1270,7 @@ DELPHES_OBJ +=  \
 	tmp/modules/DecayFilter.$(ObjSuf) \
 	tmp/modules/Delphes.$(ObjSuf) \
 	tmp/modules/DenseTrackFilter.$(ObjSuf) \
+	tmp/modules/DtClusterEfficiency.$(ObjSuf) \
 	tmp/modules/DualReadoutCalorimeter.$(ObjSuf) \
 	tmp/modules/Efficiency.$(ObjSuf) \
 	tmp/modules/EnergyScale.$(ObjSuf) \
@@ -1997,6 +2013,9 @@ external/fastjet/JetDefinition.hh: \
 	external/fastjet/ClusterSequence.hh
 	@touch $@
 modules/ConstituentFilter.h: \
+	classes/DelphesModule.h
+	@touch $@
+modules/DtClusterEfficiency.h: \
 	classes/DelphesModule.h
 	@touch $@
 modules/Calorimeter.h: \
