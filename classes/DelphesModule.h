@@ -28,7 +28,7 @@
  */
 
 #include "TNamed.h"
-
+#include "TObjArray.h"
 #include "ExRootAnalysis/ExRootConfReader.h"
 
 class TClass;

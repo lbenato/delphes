@@ -33,6 +33,7 @@
 #include "ExRootAnalysis/ExRootTreeWriter.h"
 
 #include "TROOT.h"
+#include "TClass.h"
 #include "TRandom3.h"
 #include "TString.h"
 
