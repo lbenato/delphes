@@ -1003,6 +1003,7 @@ void TreeWriter::ProcessCscCluster(ExRootTreeBranch *branch, TObjArray *array)
     entry->pid = candidate->PID; // LLP pid
     entry->Eem = candidate->Eem; // LLP Eem
     entry->Ehad = candidate->Ehad; // LLP Ehad
+    entry->Multiplicity = candidate->Multiplicity; // LLP decay-product multiplicity
     Double_t beta = momentum.P() / momentum.E();
     Double_t gamma = 1.0 / sqrt(1 - beta * beta);
     Double_t decayDistance = sqrt(pow(position.X(), 2) + pow(position.Y(), 2) + pow(position.Z(), 2)); // mm

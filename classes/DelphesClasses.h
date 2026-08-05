@@ -719,11 +719,12 @@ public:
   Float_t R; // LLP decay z
   Float_t beta; // LLP beta
   Float_t ctau; // LLP ctau
+  Int_t Multiplicity; // number of decay-product daughters used to compute Eem and Ehad
 
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
 
-  ClassDef(CscCluster, 5)
+  ClassDef(CscCluster, 6)
 };
 
 //---------------------------------------------------------------------------
