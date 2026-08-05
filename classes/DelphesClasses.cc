@@ -43,6 +43,7 @@ CompBase *HectorHit::fgCompare = CompE<HectorHit>::Instance();
 CompBase *Vertex::fgCompare = CompSumPT2<Vertex>::Instance();
 CompBase *Candidate::fgCompare = CompMomentumPt<Candidate>::Instance();
 CompBase *CscCluster::fgCompare = CompE<CscCluster>::Instance();
+CompBase *DtCluster::fgCompare = CompE<DtCluster>::Instance();
 
 //------------------------------------------------------------------------------
 

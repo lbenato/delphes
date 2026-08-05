@@ -60,6 +60,7 @@ private:
   void ProcessElectrons(ExRootTreeBranch *branch, TObjArray *array);
   void ProcessMuons(ExRootTreeBranch *branch, TObjArray *array);
   void ProcessCscCluster(ExRootTreeBranch *branch, TObjArray *array);
+  void ProcessDtCluster(ExRootTreeBranch *branch, TObjArray *array);
   void ProcessTauJets(ExRootTreeBranch *branch, TObjArray *array);
   void ProcessJets(ExRootTreeBranch *branch, TObjArray *array);
   void ProcessMissingET(ExRootTreeBranch *branch, TObjArray *array);

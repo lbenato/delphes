@@ -730,6 +730,37 @@ public:
 
 //---------------------------------------------------------------------------
 
+class DtCluster: public SortableObject
+{
+public:
+  Float_t Eta; // eta of LLP
+  Float_t Phi; // phi of LLP
+  Float_t PT; // pt of LLP
+  Float_t Px; // px of LLP
+  Float_t Py; // py of LLP
+  Float_t Pz; // pz of LLP
+  Float_t E; // E of LLP
+  Float_t Ehad; // had energy of LLP
+  Float_t Eem; // em energy of LLP
+  Float_t pid; // LLP pid
+  Float_t T; // LLP decay time-photon travel time
+  Float_t X; // LLP decay x
+  Float_t Y; // LLP decay y
+  Float_t Z; // LLP decay z
+  Float_t R; // LLP decay z
+  Float_t beta; // LLP beta
+  Float_t ctau; // LLP ctau
+  Int_t Multiplicity; // number of decay-product daughters used to compute Eem and Ehad
+  Int_t FirstDaughterPdg; // LLP first daughter ID
+
+  static CompBase *fgCompare; //!
+  const CompBase *GetCompare() const { return fgCompare; }
+
+  ClassDef(DtCluster, 1)
+};
+
+//---------------------------------------------------------------------------
+
 class Candidate: public SortableObject
 {
   friend class DelphesFactory;
