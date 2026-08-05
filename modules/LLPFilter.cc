@@ -192,6 +192,14 @@ void LLPFilter::Process()
     }
     candidate->Multiplicity = multiplicity;
 
+    // pdg ID of the LLP's immediate first daughter, to cross-check decay channels/branching ratios offline
+    candidate->FirstDaughterPdg = (candidate->D1 >= 0) ? abs(static_cast<Candidate *>(fParticleInputArray->At(candidate->D1))->PID) : 0;
+
+    // fully invisible decay (e.g. LLP -> 51 51): no daughter can deposit energy in the detector,
+    // so no cluster can physically form; the downstream efficiency formulas only see Ehad/Eem and
+    // would otherwise misinterpret Ehad==0 as a genuine (nonzero-efficiency) soft-hadronic decay
+    if(multiplicity == 0) continue;
+
     if(fRequireDecayRegion)
     {
       if(abs(eta) < fDecayRegionEtaMax && abs(eta) > fDecayRegionEtaMin

@@ -720,6 +720,7 @@ public:
   Float_t beta; // LLP beta
   Float_t ctau; // LLP ctau
   Int_t Multiplicity; // number of decay-product daughters used to compute Eem and Ehad
+  Int_t FirstDaughterPdg ; //LLP first daughter ID
 
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
@@ -875,6 +876,8 @@ public:
 
   // event characteristics variables
   Double_t ParticleDensity; // particle multiplicity density in the proximity of the particle
+
+  Int_t FirstDaughterPdg; // |pdgId| of first immediate daughter
 
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }

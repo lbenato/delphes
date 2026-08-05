@@ -260,6 +260,7 @@ Candidate::Candidate() :
   ExclYmerge45(0),
   ExclYmerge56(0),
   ParticleDensity(0),
+  FirstDaughterPdg(0),
   fFactory(0),
   fArray(0)
 {
@@ -627,6 +628,7 @@ void Candidate::Clear(Option_t * /*option*/)
   NSubJetsTrimmed = 0;
   NSubJetsPruned = 0;
   NSubJetsSoftDropped = 0;
+  FirstDaughterPdg = 0;
 
   fArray = 0;
 }
