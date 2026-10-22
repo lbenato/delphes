@@ -721,11 +721,18 @@ public:
   Float_t ctau; // LLP ctau
   Int_t Multiplicity; // number of decay-product daughters used to compute Eem and Ehad
   Int_t FirstDaughterPdg ; //LLP first daughter ID
+  Float_t ProbDTLoose; // probability of a loose (2-tag) DT cluster for this LLP, as if isolated
+  Float_t ProbDTTight; // probability of a tight (1-tag) DT cluster for this LLP, as if isolated
+  Float_t ProbCSCLoose; // probability of a loose (2-tag) CSC cluster for this LLP, as if isolated
+  Float_t ProbCSCTight; // probability of a tight (1-tag) CSC cluster for this LLP, as if isolated
+  Int_t ClusterGroup; // index of the group of overlapping LLPs in the event (-1: not grouped)
+  Int_t ClusterGroupSize; // number of LLPs in that group (0: not grouped)
+  Float_t ClusterRandom; // random number drawn for that group (-1: none)
 
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
 
-  ClassDef(CscCluster, 6)
+  ClassDef(CscCluster, 7)
 };
 
 //---------------------------------------------------------------------------
@@ -752,11 +759,18 @@ public:
   Float_t ctau; // LLP ctau
   Int_t Multiplicity; // number of decay-product daughters used to compute Eem and Ehad
   Int_t FirstDaughterPdg; // LLP first daughter ID
+  Float_t ProbDTLoose; // probability of a loose (2-tag) DT cluster for this LLP, as if isolated
+  Float_t ProbDTTight; // probability of a tight (1-tag) DT cluster for this LLP, as if isolated
+  Float_t ProbCSCLoose; // probability of a loose (2-tag) CSC cluster for this LLP, as if isolated
+  Float_t ProbCSCTight; // probability of a tight (1-tag) CSC cluster for this LLP, as if isolated
+  Int_t ClusterGroup; // index of the group of overlapping LLPs in the event (-1: not grouped)
+  Int_t ClusterGroupSize; // number of LLPs in that group (0: not grouped)
+  Float_t ClusterRandom; // random number drawn for that group (-1: none)
 
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
 
-  ClassDef(DtCluster, 1)
+  ClassDef(DtCluster, 2)
 };
 
 //---------------------------------------------------------------------------
@@ -910,6 +924,15 @@ public:
 
   Int_t FirstDaughterPdg; // |pdgId| of first immediate daughter
 
+  // muon detector shower (MDS) clusters, filled by MDSClusterProbability / MDSClusterAssignment
+  Float_t ProbDTLoose; // probability of a loose (2-tag) DT cluster for this LLP, as if isolated
+  Float_t ProbDTTight; // probability of a tight (1-tag) DT cluster for this LLP, as if isolated
+  Float_t ProbCSCLoose; // probability of a loose (2-tag) CSC cluster for this LLP, as if isolated
+  Float_t ProbCSCTight; // probability of a tight (1-tag) CSC cluster for this LLP, as if isolated
+  Int_t ClusterGroup; // index of the group of overlapping LLPs in the event (-1: not grouped)
+  Int_t ClusterGroupSize; // number of LLPs in that group (0: not grouped)
+  Float_t ClusterRandom; // random number drawn for that group (-1: none)
+
   static CompBase *fgCompare; //!
   const CompBase *GetCompare() const { return fgCompare; }
 
@@ -928,7 +951,7 @@ private:
 
   void SetFactory(DelphesFactory *factory) { fFactory = factory; }
 
-  ClassDef(Candidate, 8)
+  ClassDef(Candidate, 9)
 };
 
 #endif // DelphesClasses_h

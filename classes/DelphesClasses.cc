@@ -262,6 +262,8 @@ Candidate::Candidate() :
   ExclYmerge56(0),
   ParticleDensity(0),
   FirstDaughterPdg(0),
+  ProbDTLoose(0), ProbDTTight(0), ProbCSCLoose(0), ProbCSCTight(0),
+  ClusterGroup(-1), ClusterGroupSize(0), ClusterRandom(-1),
   fFactory(0),
   fArray(0)
 {
@@ -387,6 +389,13 @@ void Candidate::Copy(TObject &obj) const
   object.Ehad = Ehad;
   object.Etrk = Etrk;
   object.Multiplicity = Multiplicity;
+  object.ProbDTLoose = ProbDTLoose;
+  object.ProbDTTight = ProbDTTight;
+  object.ProbCSCLoose = ProbCSCLoose;
+  object.ProbCSCTight = ProbCSCTight;
+  object.ClusterGroup = ClusterGroup;
+  object.ClusterGroupSize = ClusterGroupSize;
+  object.ClusterRandom = ClusterRandom;
   object.Edges[0] = Edges[0];
   object.Edges[1] = Edges[1];
   object.Edges[2] = Edges[2];
@@ -630,6 +639,13 @@ void Candidate::Clear(Option_t * /*option*/)
   NSubJetsPruned = 0;
   NSubJetsSoftDropped = 0;
   FirstDaughterPdg = 0;
+  ProbDTLoose = 0.0;
+  ProbDTTight = 0.0;
+  ProbCSCLoose = 0.0;
+  ProbCSCTight = 0.0;
+  ClusterGroup = -1;
+  ClusterGroupSize = 0;
+  ClusterRandom = -1.0;
 
   fArray = 0;
 }

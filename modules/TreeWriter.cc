@@ -1006,6 +1006,13 @@ void TreeWriter::ProcessCscCluster(ExRootTreeBranch *branch, TObjArray *array)
     entry->Ehad = candidate->Ehad; // LLP Ehad
     entry->Multiplicity = candidate->Multiplicity; // LLP decay-product multiplicity
     entry->FirstDaughterPdg = candidate->FirstDaughterPdg;
+    entry->ProbDTLoose = candidate->ProbDTLoose;
+    entry->ProbDTTight = candidate->ProbDTTight;
+    entry->ProbCSCLoose = candidate->ProbCSCLoose;
+    entry->ProbCSCTight = candidate->ProbCSCTight;
+    entry->ClusterGroup = candidate->ClusterGroup;
+    entry->ClusterGroupSize = candidate->ClusterGroupSize;
+    entry->ClusterRandom = candidate->ClusterRandom;
     Double_t beta = momentum.P() / momentum.E();
     Double_t gamma = 1.0 / sqrt(1 - beta * beta);
     Double_t decayDistance = sqrt(pow(position.X(), 2) + pow(position.Y(), 2) + pow(position.Z(), 2)); // mm
@@ -1061,6 +1068,13 @@ void TreeWriter::ProcessDtCluster(ExRootTreeBranch *branch, TObjArray *array)
     entry->Ehad = candidate->Ehad; // LLP Ehad
     entry->Multiplicity = candidate->Multiplicity; // LLP decay-product multiplicity
     entry->FirstDaughterPdg = candidate->FirstDaughterPdg;
+    entry->ProbDTLoose = candidate->ProbDTLoose;
+    entry->ProbDTTight = candidate->ProbDTTight;
+    entry->ProbCSCLoose = candidate->ProbCSCLoose;
+    entry->ProbCSCTight = candidate->ProbCSCTight;
+    entry->ClusterGroup = candidate->ClusterGroup;
+    entry->ClusterGroupSize = candidate->ClusterGroupSize;
+    entry->ClusterRandom = candidate->ClusterRandom;
     Double_t beta = momentum.P() / momentum.E();
     Double_t gamma = 1.0 / sqrt(1 - beta * beta);
     Double_t decayDistance = sqrt(pow(position.X(), 2) + pow(position.Y(), 2) + pow(position.Z(), 2)); // mm
