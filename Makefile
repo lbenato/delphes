@@ -443,7 +443,8 @@ tmp/modules/ModulesDict.$(SrcSuf): \
 	modules/CscClusterEfficiency.h \
 	modules/CscClusterId.h \
 	modules/DtClusterEfficiency.h \
-	modules/MDSClusterProbability.h
+	modules/MDSClusterProbability.h \
+	modules/MDSClusterAssignment.h
 tmp/modules/ModulesDict$(PcmSuf): \
 	tmp/modules/ModulesDict.$(SrcSuf)
 ModulesDict$(PcmSuf): \
@@ -916,6 +917,13 @@ tmp/modules/LeptonDressing.$(ObjSuf): \
 	external/ExRootAnalysis/ExRootClassifier.h \
 	external/ExRootAnalysis/ExRootFilter.h \
 	external/ExRootAnalysis/ExRootResult.h
+tmp/modules/MDSClusterAssignment.$(ObjSuf): \
+	modules/MDSClusterAssignment.$(SrcSuf) \
+	modules/MDSClusterAssignment.h \
+	classes/DelphesClasses.h \
+	classes/DelphesDtClusterFormula.h \
+	classes/DelphesFactory.h \
+	external/ExRootAnalysis/ExRootConfReader.h
 tmp/modules/MDSClusterProbability.$(ObjSuf): \
 	modules/MDSClusterProbability.$(SrcSuf) \
 	modules/MDSClusterProbability.h \
@@ -1292,6 +1300,7 @@ DELPHES_OBJ +=  \
 	tmp/modules/JetPileUpSubtractor.$(ObjSuf) \
 	tmp/modules/LLPFilter.$(ObjSuf) \
 	tmp/modules/LeptonDressing.$(ObjSuf) \
+	tmp/modules/MDSClusterAssignment.$(ObjSuf) \
 	tmp/modules/MDSClusterProbability.$(ObjSuf) \
 	tmp/modules/Merger.$(ObjSuf) \
 	tmp/modules/MomentumSmearing.$(ObjSuf) \
@@ -2021,6 +2030,9 @@ external/fastjet/JetDefinition.hh: \
 	external/fastjet/ClusterSequence.hh
 	@touch $@
 modules/ConstituentFilter.h: \
+	classes/DelphesModule.h
+	@touch $@
+modules/MDSClusterAssignment.h: \
 	classes/DelphesModule.h
 	@touch $@
 modules/DtClusterEfficiency.h: \

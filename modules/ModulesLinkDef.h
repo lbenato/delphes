@@ -86,6 +86,7 @@
 #include "modules/CscClusterId.h"
 #include "modules/DtClusterEfficiency.h"
 #include "modules/MDSClusterProbability.h"
+#include "modules/MDSClusterAssignment.h"
 
 #ifdef __CINT__
 
@@ -154,5 +155,6 @@
 #pragma link C++ class CscClusterId+;
 #pragma link C++ class DtClusterEfficiency+;
 #pragma link C++ class MDSClusterProbability+;
+#pragma link C++ class MDSClusterAssignment+;
 
 #endif
