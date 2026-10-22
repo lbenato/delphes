@@ -442,7 +442,8 @@ tmp/modules/ModulesDict.$(SrcSuf): \
 	modules/LLPFilter.h \
 	modules/CscClusterEfficiency.h \
 	modules/CscClusterId.h \
-	modules/DtClusterEfficiency.h
+	modules/DtClusterEfficiency.h \
+	modules/MDSClusterProbability.h
 tmp/modules/ModulesDict$(PcmSuf): \
 	tmp/modules/ModulesDict.$(SrcSuf)
 ModulesDict$(PcmSuf): \
@@ -915,6 +916,12 @@ tmp/modules/LeptonDressing.$(ObjSuf): \
 	external/ExRootAnalysis/ExRootClassifier.h \
 	external/ExRootAnalysis/ExRootFilter.h \
 	external/ExRootAnalysis/ExRootResult.h
+tmp/modules/MDSClusterProbability.$(ObjSuf): \
+	modules/MDSClusterProbability.$(SrcSuf) \
+	modules/MDSClusterProbability.h \
+	classes/DelphesClasses.h \
+	classes/DelphesDtClusterFormula.h \
+	classes/DelphesFactory.h
 tmp/modules/Merger.$(ObjSuf): \
 	modules/Merger.$(SrcSuf) \
 	modules/Merger.h \
@@ -1285,6 +1292,7 @@ DELPHES_OBJ +=  \
 	tmp/modules/JetPileUpSubtractor.$(ObjSuf) \
 	tmp/modules/LLPFilter.$(ObjSuf) \
 	tmp/modules/LeptonDressing.$(ObjSuf) \
+	tmp/modules/MDSClusterProbability.$(ObjSuf) \
 	tmp/modules/Merger.$(ObjSuf) \
 	tmp/modules/MomentumSmearing.$(ObjSuf) \
 	tmp/modules/OldCalorimeter.$(ObjSuf) \
@@ -2253,6 +2261,9 @@ modules/VertexFinder.h: \
 	classes/DelphesModule.h
 	@touch $@
 modules/UniqueObjectFinder.h: \
+	classes/DelphesModule.h
+	@touch $@
+modules/MDSClusterProbability.h: \
 	classes/DelphesModule.h
 	@touch $@
 modules/TrackCountingBTagging.h: \
